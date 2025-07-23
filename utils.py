@@ -1,0 +1,24 @@
+import json
+import logging 
+from typing import List
+
+def json_to_dicts_list(filename: str):
+    try:
+        with open(filename, 'r', encoding='utf-8') as file:
+            json_str = file.read()
+            dict_list = json.loads(json_str)
+            return dict_list
+    except (TypeError, ValueError, IOError) as e:
+        logging.ERROR(f'Ошибка преобразования json-файла {filename} к словарю: {e}')
+        return None
+    
+def dict_list_to_json(dict_list: List, filename: str):
+    try:
+        json_str = json.dumps(dict_list, ensure_ascii=False)
+        with open(filename, 'w', encoding='utf-8') as file:
+            file.write(json_str)
+        return json_str
+    except (TypeError, ValueError, IOError) as e:
+        logging.ERROR(f"Ошибка при преобразовании списка словарей в JSON или записи в файл: {e}")
+        return None
+    
