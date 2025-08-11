@@ -11,7 +11,7 @@ class Message(BaseModel):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True, nullable=False)
     text: Mapped[str] = mapped_column(String(1000), nullable=False)
-    sender_uuid: Mapped[uuid.UUID] = mapped_column(Uuid, ForeignKey('users.id', ondelete='CASCADE'), nullable=False)
+    sender_id: Mapped[uuid.UUID] = mapped_column(Uuid, ForeignKey('users.id', ondelete='CASCADE'), nullable=False)
     dialogue_id: Mapped[int] = mapped_column(Integer, ForeignKey('dialogues.id', ondelete='CASCADE'), nullable=False)
     send_date: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow, nullable=False)
 

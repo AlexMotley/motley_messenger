@@ -1,9 +1,6 @@
 from app.db.base_class import BaseModel
-from sqlalchemy import Integer, String, Boolean, DateTime, ForeignKey, Uuid
+from sqlalchemy import Integer, String, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-import uuid
-from datetime import datetime
-from typing import List
 
 
 class Attachment(BaseModel):

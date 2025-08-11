@@ -1,6 +1,6 @@
 from app.db.base_class import BaseModel
 from sqlalchemy.orm import mapped_column, Mapped, relationship
-from sqlalchemy import Uuid, String, DateTime, Integer
+from sqlalchemy import Uuid, String, DateTime
 from datetime import datetime
 import uuid
 from typing import List
