@@ -20,10 +20,3 @@ async def create_user():
 @users_router.get('/{user_id}', summary="Вывести данные о пользователе", response_model=UserResponse)
 async def get_user():
     pass
-
-
-
-@users_router.get("/test-db")
-async def test_db_connection(db: AsyncSession = Depends(get_db)):
-    result = await db.execute(select(1))
-    return {"status": "success", "data": result.scalar()}
