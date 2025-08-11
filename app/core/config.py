@@ -20,11 +20,8 @@ class Settings(BaseSettings):
 settings = Settings()
 
 
-def get_db_url(asynchronious:  bool = False) -> str:
-    if asynchronious:
-        pgsql = "postgresql+asyncpg://"
-    else:
-        pgsql = "postgresql://"
+def get_db_url() -> str:
+    pgsql = "postgresql+asyncpg://"
 
     return (f"{pgsql}{settings.DB_USER}:{settings.DB_PASSWORD}@"
             f"{settings.DB_HOST}:{settings.DB_PORT}/{settings.DB_NAME}")
